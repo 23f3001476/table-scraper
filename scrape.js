@@ -1,4 +1,4 @@
-const { chromium } = require('playwright');
+import { chromium } from 'playwright';
 
 async function scrapeTables() {
   const browser = await chromium.launch({ headless: true });
@@ -11,10 +11,8 @@ async function scrapeTables() {
     const page = await browser.newPage();
     await page.goto(`https://sanand0.github.io/tdsdata/js_table/?seed=${seed}`);
     
-    // Wait for tables to load (they're dynamic)
     await page.waitForSelector('table');
     
-    // Find all numbers in all tables
     const numbers = await page.evaluate(() => {
       const nums = [];
       document.querySelectorAll('table td, table th').forEach(cell => {
