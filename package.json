@@ -1,8 +1,9 @@
 {
   "name": "table-scraper",
   "version": "1.0.0",
+  "type": "module",
   "scripts": {
-    "scrape": "playwright scrape.js"
+    "scrape": "node scrape.js"
   },
   "devDependencies": {
     "@playwright/test": "^1.48.0"
